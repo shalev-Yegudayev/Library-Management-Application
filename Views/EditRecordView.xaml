@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="OOCProject.Views.EditRecordView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1060"
+             DataContext="{Binding Source={StaticResource Locator}, Path=EditRecord}">
+    <Grid>
+
+        <Grid Grid.Column="1"  Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Enter New Record Name:" FontSize="17" VerticalAlignment="Center" />
+            <TextBox Text="{Binding NameStr, Mode=TwoWay}" Width="200" HorizontalAlignment="Right" />
+
+            <TextBlock Text="Enter New Band/Singer Name:" FontSize="15" VerticalAlignment="Center" Grid.Row="1"/>
+            <TextBox Text="{Binding CreatorStr, Mode=TwoWay}" Width="200"  Grid.Row="1" HorizontalAlignment="Right"/>
+
+            <TextBlock Text="Enter New Price Before Discount:" FontSize="15" VerticalAlignment="Center" Grid.Row="2"/>
+            <TextBox Text="{Binding PriceBeforeDiscountStr, Mode=TwoWay}" Width="150" PreviewTextInput="NumberValidationTextBoxDouble" Grid.Row="2" HorizontalAlignment="Right" />
+            
+            <TextBlock Text="Enter New Songs Amount:" FontSize="15" VerticalAlignment="Center" Grid.Row="3"/>
+            <TextBox Text="{Binding NumOfSongsStr, Mode=TwoWay}" Width="150" PreviewTextInput="NumberValidationTextBox" Grid.Row="3" HorizontalAlignment="Right" />
+
+            <TextBlock Text="    Enter New Publish Date:" FontSize="15" VerticalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" />
+            <DatePicker PreviewTextInput="NumberValidationDatePicker"  DisplayDateEnd="{Binding SelectedDate, Mode=TwoWay}" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" Grid.Column="1"/>
+
+            <TextBlock Text="    Select New Categories:" FontSize="17" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+
+            <ListBox Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Height="150">
+                <CheckBox Content="Hip Hop"  IsChecked="{Binding CategorySelection[0], Mode=TwoWay}" />
+                <CheckBox Content="Rap"      IsChecked="{Binding CategorySelection[1], Mode=TwoWay}"/>
+                <CheckBox Content="Pop"      IsChecked="{Binding CategorySelection[2], Mode=TwoWay}" />
+                <CheckBox Content="Jazz"     IsChecked="{Binding CategorySelection[3], Mode=TwoWay}"/>
+                <CheckBox Content="Country"  IsChecked="{Binding CategorySelection[4], Mode=TwoWay}"/>
+                <CheckBox Content="Reggae"   IsChecked="{Binding CategorySelection[5], Mode=TwoWay}"/>
+            </ListBox>
+
+
+            <Button Content="Edit Record" Command="{Binding EditRecordClick}" FontSize="30" Width="200" Height="50" Grid.Row="4" Grid.ColumnSpan="2"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

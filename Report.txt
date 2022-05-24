@@ -1,0 +1,18 @@
+ItemType: Book
+Id:1
+Name: erwe
+Creator Name: ewew
+Price Before Discount: 12
+Discount Percentage: 12%
+Price After Discount:10.56
+Published At: 1/6/2019 12:00:00 AM
+Genres are: Adventure, Comics, Fantasy
+ItemType: Book
+Id:2
+Name: eew32
+Creator Name: hjykr
+Price Before Discount: 12
+Discount Percentage: 12%
+Price After Discount:10.56
+Published At: 1/6/2019 12:00:00 AM
+Genres are: Adventure, Comics, Fantasy

@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="OOCProject.Views.WholeStockListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             DataContext="{Binding Source={StaticResource Locator}, Path = WholeStock}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Whole Storage" FontSize="20" VerticalAlignment="Top" />
+        <ListView x:Name="AllItems" ItemsSource="{Binding AllItems}" SelectedItem="{Binding CurrentItem}" Grid.RowSpan="4" SelectionChanged="ListView_SelectionChanged" Grid.Row="1"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="OOCProject.Views.EditBookView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{Binding Source={StaticResource Locator}, Path=EditBook}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Enter New Book Name:" FontSize="17" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding NameStr, Mode=TwoWay}" Width="200" HorizontalAlignment="Right" />
+
+        <TextBlock Text="Enter New Author Name:" FontSize="16" VerticalAlignment="Center" Grid.Row="1"/>
+        <TextBox Text="{Binding CreatorStr, Mode=TwoWay}" Width="200"  Grid.Row="1" HorizontalAlignment="Right"/>
+
+        <TextBlock Text="Enter New Price Before Discount:" FontSize="17" VerticalAlignment="Center" Grid.Row="2"/>
+        <TextBox Text="{Binding PriceBeforeDiscountStr, Mode=TwoWay}" Width="150" PreviewTextInput="NumberValidationTextBoxDouble" Grid.Row="2" HorizontalAlignment="Right" />
+
+        <TextBlock Text="    Enter New Publish Date:" FontSize="15" VerticalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" />
+        <DatePicker PreviewTextInput="NumberValidationDatePicker"  DisplayDateEnd="{Binding SelectedDate, Mode=TwoWay}" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" Grid.Column="1"/>
+
+        <TextBlock Text="    Select New Genres:" FontSize="17" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+
+        <ListBox Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Height="200">
+
+            <CheckBox Content="Action"     IsChecked="{Binding GenreSelection[0], Mode=TwoWay}"/>
+            <CheckBox Content="Adventure"  IsChecked="{Binding GenreSelection[1], Mode=TwoWay}"/>
+            <CheckBox Content="Classics"   IsChecked="{Binding GenreSelection[2], Mode=TwoWay}"/>
+            <CheckBox Content="Comics"     IsChecked="{Binding GenreSelection[3], Mode=TwoWay}"/>
+            <CheckBox Content="Fantasy"    IsChecked="{Binding GenreSelection[4], Mode=TwoWay}"/>
+            <CheckBox Content="History"    IsChecked="{Binding GenreSelection[5], Mode=TwoWay}"/>
+            <CheckBox Content="Horror"     IsChecked="{Binding GenreSelection[6], Mode=TwoWay}"/>
+            <CheckBox Content="Drama"      IsChecked="{Binding GenreSelection[7], Mode=TwoWay}"/>
+            <CheckBox Content="Other"      IsChecked="{Binding GenreSelection[8], Mode=TwoWay}"/>
+
+        </ListBox>
+
+        <Button Content="Edit Book" Command="{Binding EditBookClick}" FontSize="30" Width="200" Height="50" Grid.Row="3" Grid.ColumnSpan="2"/>
+    </Grid>
+</UserControl>
